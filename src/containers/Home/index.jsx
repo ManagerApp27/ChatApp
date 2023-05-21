@@ -1,19 +1,18 @@
+import SideNav from "components/SideNav";
+import { Section } from "globalStyles";
 import { useAuth } from "hooks/useAuth";
 import { Navigate } from "react-router-dom";
 
 const Home = () => {
-  const { user_id, handleLogout } = useAuth();
-
-  console.log(user_id, "tt")
+  const { user_id } = useAuth();
 
   if (!user_id) {
     return <Navigate to="/login" />;
   }
   return (
-    <>
-      <h1>Home</h1>
-      <button onClick={handleLogout}>cerrar sesión</button>
-    </>
+    <Section>
+      <SideNav />
+    </Section>
   );
 };
 

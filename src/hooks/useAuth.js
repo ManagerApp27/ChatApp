@@ -47,11 +47,11 @@ export const useAuth = () => {
             if (result) dispatch();
           } catch (error) {
             console.log("useAuth - useEffect", error);
-            dispatch(logout());
+            //dispatch(logout());
           }
         }
       } else {
-        if (accessToken) dispatch();
+        if (accessToken) console.log(accessToken) //dispatch();
       }
     })();
   }, [dispatch]);
