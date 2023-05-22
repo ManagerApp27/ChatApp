@@ -51,7 +51,7 @@ export const useAuth = () => {
           }
         }
       } else {
-        if (accessToken) console.log(accessToken) //dispatch();
+        if (accessToken) console.log() //dispatch();
       }
     })();
   }, [dispatch]);

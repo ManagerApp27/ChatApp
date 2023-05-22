@@ -26,6 +26,41 @@ export const Section = styled.div`
   height: 100vh;
 `;
 
+const getFontStyles = (sizeMap, size) => `
+  font-weight: bold;
+  font-size: ${sizeMap[size]}px;
+`;
+
+const getColorStyle = (colorMap, color) =>
+  `color: ${colorMap[color] || colorMap.dark};`;
+
+export const H1 = styled.h1`
+  ${({ theme }) => getFontStyles(theme, "h1")}
+  ${({ theme, color }) => getColorStyle(theme.COLORS, color)}
+`;
+
+export const H2 = styled(H1)`
+  ${({ theme }) => getFontStyles(theme.SIZES, "h2")}
+`;
+
+export const H3 = styled(H1)`
+  ${({ theme }) => getFontStyles(theme.SIZES, "h3")}
+`;
+
+export const H4 = styled(H1)`
+  ${({ theme }) => getFontStyles(theme.SIZES, "h4")}
+`;
+
+export const H5 = styled(H1)`
+  ${({ theme }) => getFontStyles(theme.SIZES, "h5")}
+`;
+
+export const P = styled.p`
+  ${({ theme }) => getFontStyles(theme.SIZES, "p")}
+  ${({ theme, color }) => getColorStyle(theme.COLORS, color)}
+    line-height: 1.6;
+`;
+
 export const Button = styled.button`
   width: 100%;
   height: 40px;
@@ -37,29 +72,29 @@ export const Button = styled.button`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  color: ${(props) => props.theme.COLORS.light};
+  color: ${({ theme, color }) =>
+    color === "light" ? theme.COLORS.dark : theme.COLORS.light};
 
   &:hover {
-    background-color: ${(props) => props.theme.COLORS.secondary};
+    background-color: ${({ theme }) => theme.COLORS.secondary};
   }
 
-  ${(props) => {
-    switch (props.color) {
+  ${({ theme, color }) => {
+    switch (color) {
       case "info":
-        return `background: ${props.theme.COLORS.info}`;
+        return `background: ${theme.COLORS.info}`;
       case "success":
-        return `background: ${props.theme.COLORS.success}`;
+        return `background: ${theme.COLORS.success}`;
       case "warning":
-        return `background: ${props.theme.COLORS.warning}`;
+        return `background: ${theme.COLORS.warning}`;
       case "danger":
-        return `background: ${props.theme.COLORS.danger}`;
+        return `background: ${theme.COLORS.danger}`;
       case "light":
-        return `background: ${props.theme.COLORS.light};
-                color: ${props.theme.COLORS.dark};`;
+        return `background: ${theme.COLORS.light};`;
       case "dark":
-        return `background: ${props.theme.COLORS.dark}`;
+        return `background: ${theme.COLORS.dark}`;
       default:
-        return `background: ${props.theme.COLORS.primary}`;
+        return `background: ${theme.COLORS.primary}`;
     }
   }}
 `;

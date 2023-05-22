@@ -1,3 +1,4 @@
+import ChatList from "components/ChatList";
 import SideNav from "components/SideNav";
 import { Section } from "globalStyles";
 import { useAuth } from "hooks/useAuth";
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <Section>
       <SideNav />
+      <ChatList />
     </Section>
   );
 };

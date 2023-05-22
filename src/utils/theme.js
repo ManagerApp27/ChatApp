@@ -1,13 +1,27 @@
-const COLORS = {
+const LIGHT = {
   primary: "#7269ef",
   secondary: "#627594",
   dark: "#252F40",
   light: "#FFFFFF",
-  gray: "#252F40",
+  gray: "#757575",
   danger: "#EA0606",
   warning: "#FFC107",
   success: "#82D616",
   info: "#17C1E8",
+  background: "#f5f7fb",
+};
+
+const DARK = {
+  primary: "#7269ef",
+  secondary: "#627594",
+  dark: "#FFFFFF",
+  light: "#252F40",
+  gray: "#757575",
+  danger: "#EA0606",
+  warning: "#FFC107",
+  success: "#82D616",
+  info: "#17C1E8",
+  background: "#495057",
 };
 
 const SIZES = {
@@ -19,9 +33,4 @@ const SIZES = {
   p: 12,
 };
 
-const theme = {
-  COLORS,
-  SIZES,
-};
-
-export default theme;
+export { LIGHT, DARK, SIZES };
