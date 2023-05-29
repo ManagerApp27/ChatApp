@@ -5,6 +5,7 @@ import {
   ProfileImage,
   SelectWrapper,
   ChatWrapper,
+  ContactDate,
 } from "./styles";
 
 const Chat = ({ id, name, phone }) => {
@@ -18,6 +19,9 @@ const Chat = ({ id, name, phone }) => {
           <LastMessageTime>Número: {phone}</LastMessageTime>
         </ContactInfo>
       </SelectWrapper>
+      <ContactDate>
+          <LastMessageTime>Número:</LastMessageTime>
+        </ContactDate>
     </ChatWrapper>
   );
 };
