@@ -16,13 +16,14 @@ import {
 import { IconContext } from "react-icons";
 import { useTheme } from "styled-components";
 import { useDarkTheme } from "hooks/useDarkTheme";
+import { P } from "globalStyles";
 
-const SideNav = () => {
+const SideNav = ({ channels }) => {
   const { handleLogout } = useAuth();
   const { COLORS } = useTheme();
   const { handleDarkTheme, isDarkMode } = useDarkTheme();
 
-  console.log(isDarkMode)
+  console.log(channels);
 
   return (
     <IconContext.Provider value={{ color: COLORS.dark, size: "20px" }}>
@@ -33,6 +34,9 @@ const SideNav = () => {
         <MidIcon>
           <HiOutlineUserCircle />
           <BiMessageDetail />
+          {channels.map((channel) => (
+            <P key={channel.id} >{channel.id}</P>
+          ))}
           <HiOutlineUserGroup />
           <AiOutlineSetting />
         </MidIcon>
@@ -41,7 +45,7 @@ const SideNav = () => {
           {isDarkMode ? (
             <BsFillSunFill onClick={handleDarkTheme} />
           ) : (
-            <BsFillMoonFill onClick={handleDarkTheme}/>
+            <BsFillMoonFill onClick={handleDarkTheme} />
           )}
         </BottomIcon>
       </SideNavWrapper>
