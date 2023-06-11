@@ -11,6 +11,7 @@ const LIGHT = {
   background: "#f5f7fb",
 };
 
+
 const DARK = {
   primary: "#7269ef",
   secondary: "#627594",

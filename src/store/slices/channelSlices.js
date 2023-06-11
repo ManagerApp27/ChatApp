@@ -3,6 +3,7 @@ import { fetchChannel } from "../thunk/fetchChannel";
 
 const initialState = {
   isLoding: false,
+  channel_id: null,
   channels: [],
   error: null,
 };
@@ -10,6 +11,11 @@ const initialState = {
 const channelSlices = createSlice({
   name: "channels",
   initialState,
+  reducers: {
+    selectChannel: (state, action) => {
+      state.channel_id = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchChannel.pending, (state) => {
       state.isLoding = true;
@@ -25,4 +31,5 @@ const channelSlices = createSlice({
   },
 });
 
+export const { selectChannel } = channelSlices.actions;
 export default channelSlices.reducer;
