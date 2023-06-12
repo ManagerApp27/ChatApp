@@ -1,3 +1,4 @@
+import { H5 } from "globalStyles";
 import {
   ContactInfo,
   ContactName,
@@ -18,7 +19,7 @@ const Chat = ({ id, contact_data, last_message_data }) => {
           alt={`${contact_data.name}'s profile`}
         />
         <ContactInfo>
-          <ContactName>{contact_data.name}</ContactName>
+          <H5>{contact_data.name}</H5>
           <LastMessageTime>
             {last_message_data
               ? last_message_data.message.length > 8

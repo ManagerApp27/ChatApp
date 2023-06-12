@@ -29,9 +29,9 @@ const SelectComponent = ({ data, handleOptionClick, value, text }) => {
       {data.map((option) => (
         <Option
           key={option.id}
-          isselected={(value === option.id) ? "isselected": undefined}
+          isselected={value === option.id ? "isselected" : undefined}
           onClick={() => handleOptionClick(option.id)}
-          isdarkmode={isDarkMode ? isDarkMode.string(): undefined}
+          isdarkmode={isDarkMode ? "isdarkmode" : undefined}
         >
           {option.name}
         </Option>

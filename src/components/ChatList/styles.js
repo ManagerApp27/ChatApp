@@ -42,7 +42,7 @@ export const RecentChatContainer = styled.div`
   width: 100%;
   margin: auto;
   
-  h1 {
+  h4 {
     margin: 15px 25px;
   }
 `;

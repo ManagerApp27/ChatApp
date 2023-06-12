@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -26,34 +26,27 @@ export const Section = styled.div`
   height: 100vh;
 `;
 
-const getFontStyles = (sizeMap, size) => `
+const getFontStyles = (sizeMap, size) => css`
   font-weight: bold;
   font-size: ${sizeMap[size]}px;
 `;
 
-const getColorStyle = (colorMap, color) =>
-  `color: ${colorMap[color] || colorMap.dark};`;
-
-export const H1 = styled.h1`
-  ${({ theme }) => getFontStyles(theme, "h1")}
-  ${({ theme, color }) => getColorStyle(theme.COLORS, color)}
+const getColorStyle = (colorMap, color) => css`
+  color: ${colorMap[color] || colorMap.dark};
 `;
 
-export const H2 = styled(H1)`
-  ${({ theme }) => getFontStyles(theme.SIZES, "h2")}
-`;
+const createHeadingComponent = (tag) => {
+  return styled[tag]`
+    ${({ theme }) => getFontStyles(theme.SIZES, tag.toLowerCase())}
+    ${({ theme, color }) => getColorStyle(theme.COLORS, color)}
+  `;
+};
 
-export const H3 = styled(H1)`
-  ${({ theme }) => getFontStyles(theme.SIZES, "h3")}
-`;
-
-export const H4 = styled(H1)`
-  ${({ theme }) => getFontStyles(theme.SIZES, "h4")}
-`;
-
-export const H5 = styled(H1)`
-  ${({ theme }) => getFontStyles(theme.SIZES, "h5")}
-`;
+export const H1 = createHeadingComponent("h1");
+export const H2 = createHeadingComponent("h2");
+export const H3 = createHeadingComponent("h3");
+export const H4 = createHeadingComponent("h4");
+export const H5 = createHeadingComponent("h5");
 
 export const P = styled.p`
   ${({ theme }) => getFontStyles(theme.SIZES, "p")}

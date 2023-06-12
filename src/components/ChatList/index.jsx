@@ -28,7 +28,7 @@ const ChatList = () => {
         <SearchInput type="text" placeholder="Buscar contactos" />
       </SearchContainer>
       <RecentChatContainer>
-        <H4>Recent</H4>
+        <H4>Reciente</H4>
         <RecentUserContainer>
           {chats.map((el, index) => (
             <Chat key={el.id} {...el} index={index} />

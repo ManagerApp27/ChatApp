@@ -15,7 +15,7 @@ export const ChatWrapper = styled.div`
     border-radius: 7px;
     background-color: #e6ebf5;
 
-    p {
+    h5 {
       color: ${({ theme }) => theme.COLORS.gray};
     }
   }
@@ -23,7 +23,7 @@ export const ChatWrapper = styled.div`
   .selectUser {
     border-radius: 7px;
     background-color: #e6ebf5;
-    p {
+    h5 {
       color: ${({ theme }) => theme.COLORS.gary};
     }
   }
@@ -50,11 +50,6 @@ export const ContactDate = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-export const ContactName = styled(P)`
-  font-weight: 700;
-  margin: 0;
 `;
 
 export const LastMessageTime = styled.span`
