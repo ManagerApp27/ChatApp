@@ -57,7 +57,7 @@ const SideNav = ({ channels }) => {
         </SideNavWrapper>
       </IconContext.Provider>
       {open && (
-        <SideNavChannelWrapper show={open}>
+        <SideNavChannelWrapper show={open.toString()}>
           <SelectComponent
             data={channels}
             handleOptionClick={handleChannel}

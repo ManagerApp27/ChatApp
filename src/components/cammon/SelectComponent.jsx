@@ -11,10 +11,10 @@ const Option = styled.div`
   border-radius: 7px;
   cursor: pointer;
   width: 100%;
-  ${({ isSelected, theme, isDarkMode }) => css`
-    background-color: ${isSelected ? "#e6ebf5" : "transparent"};
-    color: ${isSelected
-      ? isDarkMode
+  ${({ isselected, theme, isdarkmode }) => css`
+    background-color: ${isselected ? "#e6ebf5" : "transparent"};
+    color: ${isselected
+      ? isdarkmode
         ? theme.COLORS.light
         : theme.COLORS.dark
       : theme.COLORS.dark};
@@ -29,9 +29,9 @@ const SelectComponent = ({ data, handleOptionClick, value, text }) => {
       {data.map((option) => (
         <Option
           key={option.id}
-          isSelected={value === option.id}
+          isselected={(value === option.id) ? "isselected": undefined}
           onClick={() => handleOptionClick(option.id)}
-          isDarkMode={isDarkMode}
+          isdarkmode={isDarkMode ? isDarkMode.string(): undefined}
         >
           {option.name}
         </Option>

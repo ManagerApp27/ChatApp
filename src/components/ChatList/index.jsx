@@ -8,15 +8,13 @@ import {
   SearchContainer,
   SearchInput,
 } from "./styles";
-import { H4, H2, P } from "globalStyles";
+import { H4, H2 } from "globalStyles";
 import Chat from "components/Chat";
-
-import { useContact } from "hooks/useContact";
 import { useTheme } from "styled-components";
+import { useChat } from "hooks/useChat";
 
 const ChatList = () => {
-  const { contacts } = useContact();
-
+  const {chats} = useChat()
   const { COLORS } = useTheme();
 
   return (
@@ -32,7 +30,7 @@ const ChatList = () => {
       <RecentChatContainer>
         <H4>Recent</H4>
         <RecentUserContainer>
-          {contacts.map((el, index) => (
+          {chats.map((el, index) => (
             <Chat key={el.id} {...el} index={index} />
           ))}
         </RecentUserContainer>

@@ -13,6 +13,7 @@ const channelSlices = createSlice({
   initialState,
   reducers: {
     selectChannel: (state, action) => {
+      localStorage.setItem("channel_id", JSON.stringify(action.payload));
       state.channel_id = action.payload;
     },
   },

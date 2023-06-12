@@ -14,9 +14,9 @@ export const useChannel = () => {
   };
 
   useEffect(() => {
-    (async () => {
-      dispatch(fetchChannel());
-    })();
+    dispatch(fetchChannel());
+    const gatChannelId = parseInt(localStorage.getItem("channel_id"));
+    dispatch(selectChannel(gatChannelId));
   }, [dispatch]);
 
   return {
